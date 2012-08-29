@@ -13,11 +13,17 @@ class ActiveadminBlog::BlogCategory
   validates_uniqueness_of :name
 
   # Features
-	slug :name, :as => :permalink, :permanent => true
+	slug :name, :permanent => true
   
   # Relations
   has_and_belongs_to_many :blog_posts, :class_name => "ActiveadminBlog::BlogPost"
 
   # Scope
   default_scope order_by(:_position => :desc)
+
+  # Class methods
+  def self.find_by_slug(slug)
+    find_by(slug: slug)
+  end
+
 end

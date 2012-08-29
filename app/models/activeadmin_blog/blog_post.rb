@@ -18,7 +18,7 @@ class ActiveadminBlog::BlogPost
   validates_uniqueness_of :title
 
   # Features
-  slug            :title, :as => :permalink, :permanent => true
+  slug            :title, :permanent => true
   search_in       :title, :content, :tags
   mount_uploader  :featured_image, ActiveadminSettings::RedactorPictureUploader
   paginates_per 6
@@ -49,8 +49,12 @@ class ActiveadminBlog::BlogPost
   end
 
   # Class methods
+  def self.find_by_slug(slug)
+    find_by(slug: slug)
+  end
+
   def self.published_in_category(category_slug)
-    category = ActiveadminBlog::BlogCategory.find_by_permalink!(category_slug)
+    category = ActiveadminBlog::BlogCategory.find_by_slug!(category_slug)
     category.blog_posts.published
   end
 

@@ -2,7 +2,7 @@
   <%= f.input :title, :required => true %>
 </ol></fieldset>
 
-<fieldset class="inputs<% if f.object.new? %> collapsed<% end %>">
+<fieldset class="inputs<% if f.object.new_record? %> collapsed<% end %>">
 <legend>
   <span>Details
     <a class="collapse-button-hide" href="#" title="Hide details">Hide</a>
@@ -16,7 +16,7 @@
     <%= f.input :remove_featured_image, :as => :boolean %>
   <% end %>
 
-  <% if not f.object.new? %>
+  <% if not f.object.new_record? %>
     <%= f.input :permalink %>
   <% end %>
 
@@ -48,7 +48,7 @@
 <ol>
   <li class="commit button">
     <input class="update" name="commit" type="submit"
-     value="<% if f.object.new? %>Create<% else %>Update<% end %> Post">
+     value="<% if f.object.new_record? %>Create<% else %>Update<% end %> Post">
   </li>
   <li class="cancel">
     <a href="<%= admin_posts_path %>">Cancel</a>

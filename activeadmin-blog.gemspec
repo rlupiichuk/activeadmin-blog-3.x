@@ -23,7 +23,7 @@ Gem::Specification.new do |gem|
   # Dependencies
   gem.add_runtime_dependency "nokogiri"
   gem.add_runtime_dependency "mongoid_slug"
-  gem.add_runtime_dependency "mongoid_search", "~> 0.2.8" # "mongoid_search" this uses mongoid 3.x
+  gem.add_runtime_dependency "mongoid_search" # "mongoid_search" this uses mongoid 3.x
   gem.add_runtime_dependency "activeadmin-mongoid-reorder"
   gem.add_runtime_dependency "activeadmin-mongoid"
   gem.add_runtime_dependency "activeadmin-settings"
